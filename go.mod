@@ -1,4 +1,4 @@
-module github.com/rzane/docker2exe
+module github.com/rzane/podman2bin
 
 go 1.16
 

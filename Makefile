@@ -1,4 +1,4 @@
-NAME = docker2exe
+NAME = podman2bin
 OUTPUT = dist
 VERSION = v0.2.1
 SOURCES = $(wildcard *.go)
@@ -19,14 +19,14 @@ clean:
 
 .PHONY: test
 test: all
-	dist/docker2exe-$(OS)-$(ARCH) --name test --image alpine
+	dist/podman2bin-$(OS)-$(ARCH) --name test --image alpine
 	dist/test-$(OS)-$(ARCH) echo OK
-	dist/docker2exe-$(OS)-$(ARCH) --name test-embed --image alpine --embed
+	dist/podman2bin-$(OS)-$(ARCH) --name test-embed --image alpine --embed
 	dist/test-embed-$(OS)-$(ARCH) echo OK
 
 .PHONY: release
 release: clean all
-	gh release create $(VERSION) dist/docker2exe-* --generate-notes
+	gh release create $(VERSION) dist/podman2bin-* --generate-notes
 
 $(OUTPUT):
 	mkdir $(OUTPUT)

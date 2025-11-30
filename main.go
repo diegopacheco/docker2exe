@@ -6,13 +6,13 @@ import (
 	"os/user"
 	"path"
 
-	"github.com/rzane/docker2exe/cmd"
+	"github.com/rzane/podman2bin/cmd"
 	"github.com/urfave/cli/v2"
 )
 
 func main() {
 	app := &cli.App{
-		Name:   "docker2exe",
+		Name:   "podman2bin",
 		Usage:  "create an executable from a podman image",
 		Action: generate,
 		Flags: []cli.Flag{
