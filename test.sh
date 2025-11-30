@@ -7,3 +7,4 @@ xattr -c redis74-darwin-arm64
 ./redis74-darwin-arm64 & PID=$! && sleep 1 && kill $PID
 cd ../
 rm -rf dist/
+rm podman2bin
