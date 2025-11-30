@@ -13,7 +13,7 @@ import (
 func main() {
 	app := &cli.App{
 		Name:   "docker2exe",
-		Usage:  "create an executable from a docker image",
+		Usage:  "create an executable from a podman image",
 		Action: generate,
 		Flags: []cli.Flag{
 			&cli.StringFlag{
@@ -24,11 +24,11 @@ func main() {
 			&cli.StringFlag{
 				Required: true,
 				Name:     "image",
-				Usage:    "name of your docker image",
+				Usage:    "name of your podman image",
 			},
 			&cli.BoolFlag{
 				Name:  "embed",
-				Usage: "embed a docker image in the binary",
+				Usage: "embed a podman image in the binary",
 			},
 			&cli.StringFlag{
 				Name:    "workdir",

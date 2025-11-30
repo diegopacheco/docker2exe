@@ -31,7 +31,7 @@ func (shim *Shim) Pull() error {
 }
 
 func (shim *Shim) Load(file io.Reader) error {
-	cmd := shim.docker("docker", "load")
+	cmd := shim.docker("load")
 
 	stdin, err := cmd.StdinPipe()
 	if err != nil {
@@ -73,9 +73,9 @@ func (shim *Shim) Exec(containerArgs []string) error {
 }
 
 func (shim *Shim) docker(arg ...string) *exec.Cmd {
-	name := os.Getenv("DOCKER")
+	name := os.Getenv("PODMAN")
 	if name == "" {
-		name = "docker"
+		name = "podman"
 	}
 
 	cmd := exec.Command(name, arg...)

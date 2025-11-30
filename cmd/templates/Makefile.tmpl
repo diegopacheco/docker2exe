@@ -8,7 +8,7 @@ SOURCES = go.sum $(wildcard *.go) image.tar.gz
 SOURCES = go.sum $(wildcard *.go)
 {{- end}}
 TARGETS ={{range .Targets}} {{.}}{{end}}
-DOCKER ?= docker
+PODMAN ?= podman
 
 os = $(word 1, $(subst /, ,$@))
 arch = $(word 2, $(subst /, ,$@))
@@ -23,7 +23,7 @@ go.sum: go.mod
 	go get
 
 image.tar.gz:
-	$(DOCKER) save $(IMAGE) | gzip > image.tar.gz
+	$(PODMAN) save $(IMAGE) | gzip > image.tar.gz
 
 $(OUTPUT):
 	mkdir $(OUTPUT)

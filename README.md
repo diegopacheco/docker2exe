@@ -1,6 +1,6 @@
 # docker2exe
 
-This tool can be used to convert a Docker image to an executable that you can send to your friends!
+This tool can be used to convert a Podman image to an executable that you can send to your friends!
 
 ## Installation
 
@@ -12,11 +12,11 @@ Download a binary from the [releases page](https://github.com/rzane/docker2exe/r
 
 ### Requirements on the building device
 
-Docker, GoLang and gzip are also required. Use your package manager to install them.
+Podman, GoLang and gzip are also required. Use your package manager to install them.
 
 ### Requirements on the executing device
 
-Docker is required.
+Podman is required.
 
 ## Usage
 
@@ -38,7 +38,7 @@ Now, you can run the executable:
 
 When the executable is run, we'll check for the `alpine:3.9.5` image on the user's system. If it doesn't exist, the executable will automatically run:
 
-    $ docker pull alpine:3.9.5
+    $ podman pull alpine:3.9.5
 
 ### Embedded Mode
 
@@ -48,10 +48,10 @@ In this mode, if the specified image doesn't exist, we'll attempt to load it fro
 
 When creating the executable above, the image was dumped to a tarball and baked into the resulting executable:
 
-    $ docker save alpine:3.9 | gzip > alpine.tar.gz
+    $ podman save alpine:3.9 | gzip > alpine.tar.gz
 
 When the executable runs, we'll check for the `alpine:3.9` image on the user's system. If it doesn't exist, the executable will automatically run:
 
-    $ docker load alpine.tar.gz
+    $ podman load alpine.tar.gz
 
 For small images, this approach works great. In the example above, the resulting executable was under 10MB.
